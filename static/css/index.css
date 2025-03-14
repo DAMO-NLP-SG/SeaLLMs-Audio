@@ -18,6 +18,10 @@ body {
     margin-bottom: 5px;
 }
 
+.next-button {
+  float: right;
+}
+
 .dnerf {
   font-variant: small-caps;
 }

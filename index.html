@@ -33,7 +33,7 @@
           href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
     <!-- <link rel="icon" href="./static/images/favicon-32x32.png"> -->
-    <link rel="icon" href="./static/images/seal_logo.png"> <!--- Change the Logo! --->
+    <link rel="icon" href="./static/images/seallm-audio-logo.png"> <!--- Change the Logo! --->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -41,7 +41,10 @@
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
     <script src="./static/js/custom.js"></script>
-
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+ 
 </head>
 <body>
 
@@ -51,9 +54,9 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-1 publication-title">
-                        <img src="./static/images/seal_logo.png" alt="" style="height: 2.5em;">
+                        <img src="./static/images/seallm-audio-logo.png" alt="" style="height: 2.5em;">
                         <br>
-                        SeaLLMs-Audio - Audio Large Language Models <br> for Southeast Asia
+                        SeaLLMs-Audio: Large Audio Language Models <br> for Southeast Asia
                     </h1>
                     <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -69,7 +72,7 @@
                 <a href="https://kenchan0226.github.io/">Hou Pong Chan</a>,
               </span>
               <span class="author-block">
-                <a href="">Weiwen Xu</a>,
+                <a href="https://wwxu21.github.io/">Weiwen Xu</a>,
               </span>
                 </div>
                 <div class="is-size-5 publication-authors">
@@ -108,7 +111,7 @@
             </span>
                             <!-- Code Link. -->
                 <span class="link-block">
-                <a href="https://github.com/babel-llm/babel-llm"
+                <a href="https://github.com/DAMO-NLP-SG/SeaLLMs-Audio"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -118,7 +121,7 @@
               </span>
                             <!-- Models Link. -->
                 <span class="link-block">
-                <a href="https://huggingface.co/Tower-Babel"
+                <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       🤗
@@ -196,16 +199,16 @@
                 <!-- <h2 class="title is-3">Abstract</h2> -->
                 <div class="content has-text-justified">
                     <p>
-                        We introduce SeaLLMs-Audio, the multimodal (audio) extension of the SeaLLMs (Large Language Models for Southeast Asian languages) family. It is the first audio large language model (LLM) designed to support multiple Southeast Asian languages, including Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh). Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as automatic speech recognition (ASR), speech-to-text translation (S2TT), and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
+                        We introduce SeaLLMs-Audio, the multimodal (audio) extension of the <a href="https://damo-nlp-sg.github.io/DAMO-SeaLLMs/">SeaLLMs</a> (Large Language Models for Southeast Asian languages) family. It is the first large audio language model (LALM) designed to support multiple Southeast Asian languages, including Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh). Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as automatic speech recognition (ASR), speech-to-text translation (S2TT), and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
                         The key features of SeaLLMs-Audio include:
                     </p>
                     <ul>
-                        <li>Multilingual: the model support more than 5 languages, including 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese 🇬🇧English, 🇨🇳Chinese.</li>
+                        <li>Multilingual: the model mainly support 5 languages, including 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese 🇬🇧English, 🇨🇳Chinese.</li>
                         <li>Multimodal: the model support flexible input format, such as audio only, text only and audio with text.</li>
-                        <li>Multi-task: the model support voice chat,  and various audio/speech analysis tasks.</li>
+                        <li>Multi-task: the model supports a variety of tasks, including audio analysis tasks such as Audio Captioning, Automatic Speech Recognition, Speech-to-Text Translation, Speech Emotion Recognition, Speech Question Answering, and Speech Summarization. Additionally, it facilitates voice chat tasks, including answering factual and mathematical questions.</li>
                     </ul>
                     <p>
-                        We open-weight SeaLLMs-Audio in Hugging Face, and we have built a demo for users to interact with. Below are some examples to show the model performance:
+                        We open-weight <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B">SeaLLMs-Audio</a> in Hugging Face, and we have built a <a href="">demo</a> for users to interact with. Below are some examples to show the model performance:
                     </p>
                 </div>
             </div>
@@ -294,6 +297,333 @@
             <p>Languages supported by SeaLLM-Audio: 🇬🇧English, 🇨🇳Chinese, 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese. </p>
         </div> -->
 
+        <h2 class="title is-4">Voice Chat</h2>
+        <div class="content has-text-justified">
+            <div class="full-width-container example-container">
+                <div class="example-content">
+                    <div class="title"><span>Voice Chat: Answering questions about factuality </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <!-- <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
+                                                type="audio/wav"> -->
+                                        <source src="static/audios/fact_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">The most abundant gas in Earth's atmosphere is nitrogen. It makes up about 78 percent of the atmosphere by volume.</div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/fact_id.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Satelit alami Bumi adalah Bulan. Bulan adalah satu-satunya satelit alami Bumi dan merupakan objek terbesar di orbit Bumi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content" style="display:none">
+                    <div class="title"><span>Voice Chat: Answering mathematical questions </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <!-- <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
+                                                type="audio/wav"> -->
+                                        <source src="static/audios/math_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">If 60% of the cars in the parking lot are four-door cars, and there are 75 four-door cars, you can find the total number of cars by dividing the number of four-door cars by the percentage they represent. So, if 75 is 60% of the total, you divide 75 by 0.6 to get the total number of cars. This gives you 125 cars in the parking lot altogether.</div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/math_zh.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content"><p>设矩形的宽为 \( w \) 厘米，那么矩形的长是 \( 2w \) 厘米。</p>
+
+                                    <p>矩形的周长公式为：</p>
+                                    \[
+                                    P = 2(\text{长} + \text{宽})
+                                    \]
+                                    
+                                    <p>根据题意，周长为36厘米，因此可以列出方程：</p>
+                                    \[
+                                    2(2w + w) = 36
+                                    \]
+                                    
+                                    <p>简化方程：</p>
+                                    \[
+                                    2(3w) = 36
+                                    \]
+                                    \[
+                                    6w = 36
+                                    \]
+                                    
+                                    <p>解这个方程，得到：</p>
+                                    \[
+                                    w = \frac{36}{6} = 6
+                                    \]
+                                    
+                                    <p>所以矩形的宽是6厘米。矩形的长是宽的两倍，因此：</p>
+                                    \[
+                                    \text{长} = 2w = 2 \times 6 = 12
+                                    \]
+                                    
+                                    <p>矩形的长是12厘米。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content" style="display:none">
+                    <div class="title"><span>Voice Chat: Answering general questions </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <!-- <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
+                                                type="audio/wav"> -->
+                                        <source src="static/audios/general_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Breakfast is important because it provides your body with the energy and nutrients needed to start the day. It helps to boost your metabolism, improve concentration, and increase energy levels. Additionally, eating breakfast can help you maintain a healthy weight by preventing overeating later in the day. It also sets a positive tone for the rest of the meals you eat throughout the day.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/general_th.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">การลดหย่อนภาษีสำหรับคนไทยสามารถทำได้หลายวิธี โดยเฉพาะอย่างยิ่งในส่วนของภาษีเงินได้บุคคลธรรมดา ดังนี้:
+
+                                    1. **การบริจาคเพื่อการกุศล**: การบริจาคเงินให้กับองค์กรการกุศลที่ได้รับการรับรองจากกรมสรรพากรสามารถนำมาลดหย่อนภาษีได้ ตามกฎหมาย ผู้บริจาคสามารถนำจำนวนเงินที่บริจาคมาหักออกจากฐานภาษีได้ แต่ต้องมีหลักฐานการบริจาค เช่น ใบเสร็จหรือใบกำกับภาษี
+                                    
+                                    2. **การลงทุนในกองทุนรวม**: การลงทุนในกองทุนรวมที่ได้รับการรับรองจากสำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์ (ก.ล.ต.) และกองทุนรวมที่ได้รับการรับรองจากกรมสรรพากร สามารถนำมาลดหย่อนภาษีได้ ตามกฎหมาย ผู้ลงทุนสามารถนำผลตอบแทนจากการลงทุนมาหักออกจากฐานภาษีได้
+                                    
+                                    3. **การประกันชีวิต**: การซื้อประกันชีวิตที่ได้รับการรับรองจากกรมสรรพากรสามารถนำมาลดหย่อนภาษีได้ ตามกฎหมาย ผู้ที่ซื้อประกันชีวิตสามารถนำเบี้ยประกันมาหักออกจากฐานภาษีได้ แต่ต้องมีหลักฐานการชำระเบี้ยประกัน เช่น ใบเสร็จหรือใบกำกับภาษี
+                                    
+                                    การใช้วิธีเหล่านี้ในการลดหย่อนภาษีจะช่วยลดภาระภาษีของคุณได้อย่างมีประสิทธิภาพ หากมีข้อสงสัยเพิ่มเติม ควรปรึกษากับผู้เชี่ยวชาญด้านภาษีหรือที่ปรึกษาทางการเงินเพื่อรับคำแนะนำที่เหมาะสมกับสถานการณ์ของคุณ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="title is-4">Audio Analysis</h2>
+        <div class="content has-text-justified">
+            <div class="full-width-container example-container">
+                <div class="example-content">
+                    <div class="title"><span>Audio Analysis: Audio Captioning </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <!-- <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
+                                                type="audio/wav"> -->
+                                        <source src="static/audios/AA_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Write a description of the audio file.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">A dog pants and then a car horn blows followed by a dog barking</div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/AA_vi.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Diễn tả nội dung đoạn ghi âm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Mưa rơi và sấm sét vang xa
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content"  style="display:none">
+                    <div class="title"><span>Audio Analysis: Automatic Speech Recognition </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/ASR_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Please write down what is spoken in the audio file.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    Ah you know i saw you by the way, ah i was gonna say on broadway but it wasn't it was shakespeare in the park.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/ASR_th.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>ข้อความในคลิปเสียงนี้ ช่วยพิมพ์ออกมาให้หน่อย</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">เมียนวดีใกล้วิกฤตหลังไทยตัดไฟฟ้าน้ํามันทําพลังงานในเมืองเหลืออีกหนึ่งถึงสองวัน เร่งหาพลังงานทดแทน ส่วนราคาน้ํามันดีเซลในเมียนมาพุ่งลิตรละ ๖๓ บาท ส่วนเบนซินแต่ระดับ ๕๘ บาทต่อลิตร
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content"  style="display:none">
+                    <div class="title"><span>Audio Analysis: Speech Question Answering </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/SQA_en.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Who has more activity in the day?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    Neil has more activity, spending a day in meetings, shopping, and collecting kids from school.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="static/audios/SQA_vi.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Bộ phim nào được nhắc đến trong tệp ghi âm này?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">SeaLLMs-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Bộ phim "Nhà bà nữ" được nhắc đến trong tệp ghi âm này.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- SeaBench -->
         <h2 class="title is-4">Performance: SeaBench-Audio</h2>
         <style>
@@ -366,7 +696,7 @@
                 We manually annotated 15 questions per task per language. For evaluation, qualified native speakers rated each response on a scale of 1 to 5, with 5 representing the highest quality.  
                 Please note that SeaBench-Audio is still under development, and we welcome contributions from the community.
             </p>
-            We compare the performance of SeaLLMs-Audio with recent audio LLMs with similar sizes, including 
+            Due to the lack of LALMs for all the three Southeast Asian languages, we compare the performance of SeaLLMs-Audio with relevant audio LLMs with similar sizes, including 
             <a href="https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct">Qwen2-Audio-7B-Instruct</a> (Qwen2-Audio), 
             <a href="https://huggingface.co/MERaLiON/MERaLiON-AudioLLM-Whisper-SEA-LION">MERaLiON-AudioLLM-Whisper-SEA-LION</a> (MERaLiON),
             <a href="https://huggingface.co/scb10x/llama3.1-typhoon2-audio-8b-instruct">llama3.1-typhoon2-audio-8b-instruct</a> (typhoon2-audio), and
@@ -374,334 +704,87 @@
             All the audio LLMs can accept audio with text as input. The results are shown in the table below.
             
         </div>
+        <div style="text-align: center;">
+            <figure>
+                <figcaption>Average scores of SeaLLMs-Audio vs. Other LALMs</figcaption>
+                <img src="./static/images/scores_lang.png" alt="Performance of SeaLLMs-Audio vs. Other Audio LLMs">
+            </figure>
+        </div>
         <div class="table-container">
-            <table>
-                <caption>Performance of Open Large Multilingual LLMs vs. Babel-83B-Base</caption>
-                <thead>
-                  <tr>
-                    <th>language</th>
-                    <th>Qwen2-overall</th>
-                    <th>meralion-overall</th>
-                    <th>typhoon2-overall</th>
-                    <th>DiVA-overall</th>
-                    <th>SeaLLM_v4-overall</th>
-                    <th>SeaLLM_v5-overall</th>
-                    <th>SeaLLM_v6-overall</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>en</td>
-                    <td>4</td>
-                    <td>4.1</td>
-                    <td>4</td>
-                    <td>3.4</td>
-                    <td>4.2</td>
-                    <td>4</td>
-                    <td>4.2</td>
-                  </tr>
-                  <tr>
-                    <td>id</td>
-                    <td>3</td>
-                    <td>2.9</td>
-                    <td>2.2</td>
-                    <td>1.2</td>
-                    <td>3.9</td>
-                    <td>4</td>
-                    <td>3.9</td>
-                  </tr>
-                  <tr>
-                    <td>th</td>
-                    <td>1.3</td>
-                    <td>2.5</td>
-                    <td>3.9</td>
-                    <td>1.3</td>
-                    <td>3.8</td>
-                    <td>3.8</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>vi</td>
-                    <td>1.6</td>
-                    <td>2.3</td>
-                    <td>1.8</td>
-                    <td>1.3</td>
-                    <td>4.2</td>
-                    <td>4</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>zh</td>
-                    <td>4.1</td>
-                    <td>3</td>
-                    <td>2.5</td>
-                    <td>1.2</td>
-                    <td>4.2</td>
-                    <td>3.8</td>
-                    <td>4</td>
-                  </tr>
-                </tbody>
-              </table>
-            <!-- <table>
-                <caption>Performance of Open Large Multilingual LLMs vs. Babel-83B-Base</caption>
-                <thead>
-                <tr>
-                    <th>Dataset</th>
-                    <th>Llama3.1-70B</th>
-                    <th>Qwen2.5-72B</th>
-                    <th>Babel-83B</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>MMMLU</td>
-                    <td>69.1</td>
-                    <td>74.7</td>
-                    <td><b>76.3</b></td>
-                </tr>
-                <tr>
-                    <td>M3Exam</td>
-                    <td>67.4</td>
-                    <td>71.2</td>
-                    <td><b>72.1</b></td>
-                </tr>
-                <tr>
-                    <td>XCOPA</td>
-                    <td>92.6</td>
-                    <td>81.1</td>
-                    <td><b>92.8</b></td>
-                </tr>
-                <tr>
-                    <td>MGSM</td>
-                    <td>48.9</td>
-                    <td><b>63.9</b></td>
-                    <td>62.6</td>
-                </tr>
-                <tr>
-                    <td>XNLI</td>
-                    <td>66.2</td>
-                    <td>74.9</td>
-                    <td><b>76.6</b></td>
-                </tr>
-                <tr>
-                    <td>Flores-200</td>
-                    <td>57.4</td>
-                    <td>53.1</td>
-                    <td><b>58.8</b></td>
-                </tr>
-                <tr class="highlight">
-                    <td><i>Average</i></td>
-                    <td>66.9</td>
-                    <td>69.8</td>
-                    <td><b>73.2</b></td>
-                </tr>
-                </tbody>
-            </table> -->
-        </div>
+        <table>
+            <tr style="text-align: center;">
+                <th rowspan="2" style="text-align: center;">Language</th>
+                <th rowspan="2" style="text-align: center;">Task</th>
+                <th colspan="5" style="text-align: center;">Models</th>
+            </tr>
+            <tr>
+                <th>SeaLLMs-Audio</th>
+                <th>Qwen2-Audio</th>
+                <th>MERaLiON</th>
+                <th>typhoon2-audio</th>
+                <th>DiVA</th>
+            </tr>
+            
+            <!-- English -->
+            <tr><th rowspan="9" style="text-align: center;">English</th><td>AC</td><td>4</td><td>3.73</td><td>3.6</td><td>3.87</td><td>1.33</td></tr>
+            <tr><td>ASR</td><td>4.8</td><td>4.73</td><td>4.53</td><td>4.67</td><td>2.73</td></tr>
+            <tr><td>Factuality</td><td>4.4</td><td>4.07</td><td>4.87</td><td>4.8</td><td>4.53</td></tr>
+            <tr><td>General</td><td>4.4</td><td>4.8</td><td>2.93</td><td>4.27</td><td>4.73</td></tr>
+            <tr><td>Math</td><td>2.67</td><td>2.93</td><td>3.6</td><td>2.87</td><td>3.47</td></tr>
+            <tr><td>S2TT</td><td>3.57</td><td>2.79</td><td>3.93</td><td>3.21</td><td>2.5</td></tr>
+            <tr><td>SER</td><td>3.77</td><td>4.23</td><td>3</td><td>2.23</td><td>2.54</td></tr>
+            <tr><td>SQA</td><td>4.87</td><td>4.53</td><td>4.87</td><td>4.6</td><td>2</td></tr>
+            <tr><td>SS</td><td>3.73</td><td>4.47</td><td>4.13</td><td>3.33</td><td>3.53</td></tr>
+            
+            <!-- Indonesian -->
+            <tr><th rowspan="9" style="text-align: center;">Indonesian</th><td>AC</td><td>3.67</td><td>2.73</td><td>2.6</td><td>1.67</td><td>1</td></tr>
+            <tr><td>ASR</td><td>4.6</td><td>2.87</td><td>3.73</td><td>2.47</td><td>1.2</td></tr>
+            <tr><td>Factuality</td><td>4.27</td><td>2.4</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>General</td><td>3.47</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Math</td><td>3.47</td><td>1.47</td><td>1.2</td><td>1</td><td>1</td></tr>
+            <tr><td>S2TT</td><td>3.93</td><td>2.93</td><td>3.8</td><td>3</td><td>2.53</td></tr>
+            <tr><td>SER</td><td>2.27</td><td>3.27</td><td>2.8</td><td>2.13</td><td>1</td></tr>
+            <tr><td>SQA</td><td>4.87</td><td>3.27</td><td>4.73</td><td>3.8</td><td>1</td></tr>
+            <tr><td>SS</td><td>3</td><td>3.27</td><td>2.6</td><td>2</td><td>1.07</td></tr>
+            
+            <!-- Thai -->
+            <tr><th rowspan="9" style="text-align: center;">Thai</th><td>AC</td><td>3.73</td><td>2.6</td><td>3.2</td><td>3.2</td><td>1</td></tr>
+            <tr><td>ASR</td><td>4.47</td><td>1</td><td>2.47</td><td>4.47</td><td>1</td></tr>
+            <tr><td>Factuality</td><td>3.33</td><td>1</td><td>1</td><td>3.93</td><td>1</td></tr>
+            <tr><td>General</td><td>3.4</td><td>1</td><td>1</td><td>3.93</td><td>1</td></tr>
+            <tr><td>Math</td><td>4.47</td><td>1</td><td>1</td><td>3.4</td><td>1.47</td></tr>
+            <tr><td>S2TT</td><td>4.33</td><td>1.53</td><td>4.6</td><td>4.33</td><td>3.13</td></tr>
+            <tr><td>SER</td><td>4</td><td>2.33</td><td>2.87</td><td>3.2</td><td>1</td></tr>
+            <tr><td>SQA</td><td>4.67</td><td>1.53</td><td>3.53</td><td>4.6</td><td>1</td></tr>
+            <tr><td>SS</td><td>3.2</td><td>1.07</td><td>2.93</td><td>3.4</td><td>1</td></tr>
 
-        <h2 class="title is-4">Voice Chat</h2>
-        <div class="content has-text-justified">
-            <div class="full-width-container example-container">
-                <div class="example-content">
-                    <div class="title"><span>Voice Chat: Identify speaker information and respond </span>
-                        <a class="next-button">Next</a></div>
-                    <div class="grid-layout">
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">Yes, the speaker is female and in her twenties.</div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/1718857224593-3efbd24f-f7f8-4f10-abba-24df5d92210b.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">I'm sorry to hear that you're feeling stressed about your
-                                    exam. It's completely normal to feel anxious when you're preparing for an important
-                                    test. Here are some tips that might help you:
-                                    &nbsp;
-                                    1. Start studying early: Don't leave everything until the last minute. Break up your
-                                    study sessions into smaller chunks of time, and try to stick to a regular schedule.
-                                    2. Find a quiet place to study: A quiet environment can help you concentrate better.
-                                    If possible, find a library or a study room where you can work without distractions.
-                                    3.Take breaks: It's important to take breaks during your study sessions. This will
-                                    give your brain a chance to rest and recharge. Try taking short breaks every hour or
-                                    so.
-                                    4. Get enough sleep: Lack of sleep can make it harder to focus and retain
-                                    information. Make sure you're getting enough sleep each night, ideally around 7-8
-                                    hours.
-                                    5. Practice relaxation techniques: Deep breathing exercises, meditation, or yoga can
-                                    all help you relax and reduce stress.
-                                    &nbsp;
-                                    Remember, it's okay if you're not feeling well-prepared. Just do your best, and
-                                    trust yourself. Good luck with your exam!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="example-content" style="display:none">
-                    <div class="title"><span>Voice Chat: Speech translation </span>
-                        <a class="next-button">Next</a></div>
-                    <div class="grid-layout">
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/1718864196340-99f0394d-7d0b-4b4b-b86a-4d8f3a2ac09c.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">每个人都希望被欣赏，所以如果你欣赏某人，不要把它保密。</div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/translate it into German.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">Jeder möchte geschätzt werden, also wenn du jemanden schätzt,
-                                    lass es nicht als Geheimnis verbergen.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/how about into French.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">Chacun veut être apprecié, alors si tu apprécies quelqu'un, ne
-                                    le gardes pas secret.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/给我生成一些类似这句话意思的，其他说法的句子，用中文生成.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">1. 每个人都喜欢被赞美，所以如果你喜欢一个人，不要隐藏你的赞赏。
-                                    2. 所有人都渴望得到认可，因此如果你欣赏某人，请不要独自享用这种感觉。
-                                    3. 人们都希望被欣赏，所以如果你喜欢某人，不要独自保密欣赏他人是一种美德，所以不要让别人知道你对他们的赞赏是秘密的。
-                                    4. 人们都希望受到赞扬，所以如果你欣赏某人，不妨公开表达出来。
-                                    5. 如果你喜欢某人，不要犹豫告诉他们，因为每个人都有权利享受他人的赞赏。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="example-content" style="display:none">
-                    <div class="title">
-                        <span>Voice Chat: Detecting background noise and responding accordingly </span>
-                        <a class="next-button">Next</a></div>
-                    <div class="grid-layout">
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/audio-0-100.wav.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">Use headphones to block out external noise and find a quiet
-                                    place to study. Prioritize your tasks and set realistic goals for yourself. Use
-                                    active learning techniques such as summarizing, note-taking, and quizzing to help
-                                    you retain information. Take breaks and practice self-care to avoid burnout.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">User</div>
-                            <div class="content wide-content">
-                                <div class="text-content">
-                                    <audio class="audio-icon" controls="">
-                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/en-noise-2.wav"
-                                                type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="role">Qwen2-Audio</div>
-                            <div class="content wide-content">
-                                <div class="text-content">Yes, you can try negotiating with them to reach a mutually
-                                    beneficial agreement. You could also consider seeking help from a mediator or
-                                    professional negotiator if needed.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <!-- Vietnamese -->
+            <tr><th rowspan="9" style="text-align: center;">Vietnamese</th><td>AC</td><td>4.2</td><td>2.27</td><td>2.47</td><td>1.07</td><td>1</td></tr>
+            <tr><td>ASR</td><td>4.4</td><td>1.27</td><td>2</td><td>1.4</td><td>1</td></tr>
+            <tr><td>Factuality</td><td>3.53</td><td>1</td><td>1.07</td><td>1</td><td>1</td></tr>
+            <tr><td>General</td><td>4.2</td><td>1</td><td>1</td><td>1.07</td><td>1</td></tr>
+            <tr><td>Math</td><td>4.33</td><td>1.07</td><td>1</td><td>1.07</td><td>1</td></tr>
+            <tr><td>S2TT</td><td>4.13</td><td>1.8</td><td>3.93</td><td>3.13</td><td>3.2</td></tr>
+            <tr><td>SER</td><td>4</td><td>1.73</td><td>2.6</td><td>1.73</td><td>1</td></tr>
+            <tr><td>SQA</td><td>4.4</td><td>2.27</td><td>4</td><td>3.33</td><td>1</td></tr>
+            <tr><td>SS</td><td>3.33</td><td>1.67</td><td>2.6</td><td>1.67</td><td>1</td></tr>
+            
+            <!-- Chinese -->
+            <tr><th rowspan="9" style="text-align: center;">Chinese</th><td>AC</td><td>3.73</td><td>3.67</td><td>2.93</td><td>3.8</td><td>1</td></tr>
+            <tr><td>ASR</td><td>4.13</td><td>4.47</td><td>2.8</td><td>2.27</td><td>1</td></tr>
+            <tr><td>Factuality</td><td>4.53</td><td>4.2</td><td>2.33</td><td>1</td><td>1</td></tr>
+            <tr><td>General</td><td>4.27</td><td>4.67</td><td>1.53</td><td>1</td><td>1.13</td></tr>
+            <tr><td>Math</td><td>4.27</td><td>2.4</td><td>1.27</td><td>1</td><td>1</td></tr>
+            <tr><td>S2TT</td><td>3.53</td><td>4.07</td><td>4.4</td><td>3.2</td><td>2.67</td></tr>
+            <tr><td>SER</td><td>4.13</td><td>4.27</td><td>3.73</td><td>3.6</td><td>1</td></tr>
+            <tr><td>SQA</td><td>4.33</td><td>4.6</td><td>3.87</td><td>3.13</td><td>1</td></tr>
+            <tr><td>SS</td><td>4.6</td><td>4.07</td><td>4.4</td><td>2.53</td><td>1</td></tr>
+        </table>
+        <!-- </div>
+
+        </div> -->
+
+        
     </div>
     </div>
 </section>
@@ -713,7 +796,7 @@
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">Acknowledgement</h2>
-        <p>Put your acknowledgement here.</p>
+        <p>We would like to thank our professional and native linguists—Tantong Champaiboon, Nguyen Ngoc Yen Nhi, and Tara Devina Putri—who contributed to building, evaluating, and fact-checking our sampled training dataset and evaluation dataset. Our special thanks go to Prof. Luu Anh Tuan for providing valuable feedback for this project.</p>
     </div>
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
@@ -722,8 +805,14 @@
             <br>
             Corresponding Author: <a href="mailto: wxzhang@sutd.edu.sg">wxzhang@sutd.edu.sg</a>
         </p>
-        <pre><code>Put your bib here
-    </code></pre>
+        <pre><code>@misc{SeaLLMs-Audio,
+author = {Chaoqun Liu and Mahani Aljunied and Guizhen Chen and Hou Pong Chan and Weiwen Xu and Yu Rong and Wenxuan Zhang },
+title = {SeaLLMs-Audio: Large Audio Language Models for Southeast Asia},
+year = {2025},
+publisher = {GitHub},
+journal = {GitHub repository},
+howpublished = {\url{https://github.com/DAMO-NLP-SG/SeaLLMs-Audio}},
+}</code></pre>
     </div>
 </section>
 
