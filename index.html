@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="SeaLLMs-Audio">
+    <meta name="keywords" content="SeaLLM, SeaLLM-Audio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SeaLLMs-Audio</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/favicon-32x32.png"> -->
+    <link rel="icon" href="./static/images/seal_logo.png"> <!--- Change the Logo! --->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/custom.js"></script>
+
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-widescreen">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">
+                        <img src="./static/images/seal_logo.png" alt="" style="height: 2.5em;">
+                        <br>
+                        SeaLLMs-Audio - Audio Large Language Models <br> for Southeast Asia
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://liuchaoqun.github.io/">Chaoqun Liu</a>,
+            </span>
+            <span class="author-block">
+                <a href="">Mahani Aljunied</a>,
+              </span>
+              <span class="author-block">
+                <a href="">Guizhen Chen</a>,
+              </span>
+            <span class="author-block">
+                <a href="https://kenchan0226.github.io/">Hou Pong Chan</a>,
+              </span>
+              <span class="author-block">
+                <a href="">Weiwen Xu</a>,
+              </span>
+                </div>
+                <div class="is-size-5 publication-authors">
+            
+              <span class="author-block">
+              <a href="https://royrong.me/">Yu Rong</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://isakzhang.github.io">Wenxuan Zhang*</a> (Corresponding Author)
+            </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">DAMO Academy, Alibaba Group</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2503.00865"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span> -->
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLM-Chat"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      🤗
+                  </span>
+                  <span>DEMO</span>
+                  </a>
+            </span>
+                            <!-- Code Link. -->
+                <span class="link-block">
+                <a href="https://github.com/babel-llm/babel-llm"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Github</span>
+                  </a>
+              </span>
+                            <!-- Models Link. -->
+                <span class="link-block">
+                <a href="https://huggingface.co/Tower-Babel"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      🤗
+                  </span>
+                  <span>Models</span>
+                  </a>
+                </span>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero teaser">
+    <!-- <div class="container">
+        <div class="text-box">
+            <p><em>Put a Quote here, if here.</em></p>
+            <div class="quote-source">-- <em>Story from Genesis, Old Testament</em></div>
+        </div>
+    </div> -->
+    <style>
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        .text-box {
+            width: 100%; /* Thinner box */
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid black;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            line-height: 1.8; /* Slightly increased for readability with larger text */
+            font-size: 1.5rem; /* Increased base font size for larger text */
+        }
+
+        .text-box em {
+            font-style: italic;
+        }
+
+        .text-box strong {
+            font-weight: bold;
+        }
+
+        .quote-source {
+            margin-top: 1em;
+            font-style: italic;
+            font-size: 1.0rem; /* Increased font size for the quote source */
+        }
+
+        .hero {
+            padding: 1rem 1rem;
+        }
+
+        .hero-body {
+            text-align: center;
+        }
+    </style>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <!-- <h2 class="title is-3">Abstract</h2> -->
+                <div class="content has-text-justified">
+                    <p>
+                        We introduce SeaLLMs-Audio, the multimodal (audio) extension of the SeaLLMs (Large Language Models for Southeast Asian languages) family. It is the first audio large language model (LLM) designed to support multiple Southeast Asian languages, including Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh). Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as automatic speech recognition (ASR), speech-to-text translation (S2TT), and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
+                        The key features of SeaLLMs-Audio include:
+                    </p>
+                    <ul>
+                        <li>Multilingual: the model support more than 5 languages, including 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese 🇬🇧English, 🇨🇳Chinese.</li>
+                        <li>Multimodal: the model support flexible input format, such as audio only, text only and audio with text.</li>
+                        <li>Multi-task: the model support voice chat,  and various audio/speech analysis tasks.</li>
+                    </ul>
+                    <p>
+                        We open-weight SeaLLMs-Audio in Hugging Face, and we have built a demo for users to interact with. Below are some examples to show the model performance:
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+    </div>
+</section>
+
+<!-- introduction -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Introduction</h2>
+  </div>
+</section> -->
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4">SeaLLM-7B-v2.5 DEMO</h2>
+    <gradio-app src="https://seallms-seallm-7b-v2-5-simple.hf.space"></gradio-app>
+  </div>    
+</section> -->
+
+
+<!-- Evaluation -->
+<section class="section">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <!-- <h2 class="title is-3">Evaluation</h2> -->
+
+        <!-- <h2 class="title is-4">SeaLLMs-Audio Supported Languages</h2>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .content {
+                margin-top: 10px;
+            }
+
+            .has-text-justified {
+                text-align: justify;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                margin-top: 20px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+
+            .highlight {
+                background-color: #d9f2ff; /* Light blue for highlighted rows */
+            }
+        </style>
+        <div class="content has-text-justified">
+            <p>Languages supported by SeaLLM-Audio: 🇬🇧English, 🇨🇳Chinese, 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese. </p>
+        </div> -->
+
+        <!-- SeaBench -->
+        <h2 class="title is-4">Performance: SeaBench-Audio</h2>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .content {
+                margin-top: 10px;
+            }
+
+            .has-text-justified {
+                text-align: justify;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                margin-top: 20px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+
+            .highlight {
+                background-color: #d9f2ff; /* Light blue for highlighted rows */
+            }
+        </style>
+        <div class="content has-text-justified">
+            <p>
+                Due to the absence of standard audio benchmarks for evaluating audio LLMs in Southeast Asia, we have manually created a benchmark called <strong>SeaBench-Audio</strong>. It comprises nine tasks:
+            </p>
+            <ul>
+                <li>
+                    <strong>Tasks with both audio and text inputs:</strong> Audio Analysis (AA), Automatic Speech Recognition (ASR), Speech-to-Text Translation (S2TT), Speech Emotion Recognition (SER), Speech Question Answering (SQA), and Speech Summarization (SS).
+                </li>
+                <li>
+                    <strong>Tasks with only audio inputs:</strong> Factuality, Math, and General.
+                </li>
+            </ul>
+            <p>
+                We manually annotated 15 questions per task per language. For evaluation, qualified native speakers rated each response on a scale of 1 to 5, with 5 representing the highest quality.  
+                Please note that SeaBench-Audio is still under development, and we welcome contributions from the community.
+            </p>
+            We compare the performance of SeaLLMs-Audio with recent audio LLMs with similar sizes, including 
+            <a href="https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct">Qwen2-Audio-7B-Instruct</a> (Qwen2-Audio), 
+            <a href="https://huggingface.co/MERaLiON/MERaLiON-AudioLLM-Whisper-SEA-LION">MERaLiON-AudioLLM-Whisper-SEA-LION</a> (MERaLiON),
+            <a href="https://huggingface.co/scb10x/llama3.1-typhoon2-audio-8b-instruct">llama3.1-typhoon2-audio-8b-instruct</a> (typhoon2-audio), and
+            <a href="https://huggingface.co/WillHeld/DiVA-llama-3-v0-8b">DiVA-llama-3-v0-8b</a> (DiVA). 
+            All the audio LLMs can accept audio with text as input. The results are shown in the table below.
+            
+        </div>
+        <div class="table-container">
+            <table>
+                <caption>Performance of Open Large Multilingual LLMs vs. Babel-83B-Base</caption>
+                <thead>
+                  <tr>
+                    <th>language</th>
+                    <th>Qwen2-overall</th>
+                    <th>meralion-overall</th>
+                    <th>typhoon2-overall</th>
+                    <th>DiVA-overall</th>
+                    <th>SeaLLM_v4-overall</th>
+                    <th>SeaLLM_v5-overall</th>
+                    <th>SeaLLM_v6-overall</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>en</td>
+                    <td>4</td>
+                    <td>4.1</td>
+                    <td>4</td>
+                    <td>3.4</td>
+                    <td>4.2</td>
+                    <td>4</td>
+                    <td>4.2</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>3</td>
+                    <td>2.9</td>
+                    <td>2.2</td>
+                    <td>1.2</td>
+                    <td>3.9</td>
+                    <td>4</td>
+                    <td>3.9</td>
+                  </tr>
+                  <tr>
+                    <td>th</td>
+                    <td>1.3</td>
+                    <td>2.5</td>
+                    <td>3.9</td>
+                    <td>1.3</td>
+                    <td>3.8</td>
+                    <td>3.8</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>vi</td>
+                    <td>1.6</td>
+                    <td>2.3</td>
+                    <td>1.8</td>
+                    <td>1.3</td>
+                    <td>4.2</td>
+                    <td>4</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>zh</td>
+                    <td>4.1</td>
+                    <td>3</td>
+                    <td>2.5</td>
+                    <td>1.2</td>
+                    <td>4.2</td>
+                    <td>3.8</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- <table>
+                <caption>Performance of Open Large Multilingual LLMs vs. Babel-83B-Base</caption>
+                <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>Llama3.1-70B</th>
+                    <th>Qwen2.5-72B</th>
+                    <th>Babel-83B</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>MMMLU</td>
+                    <td>69.1</td>
+                    <td>74.7</td>
+                    <td><b>76.3</b></td>
+                </tr>
+                <tr>
+                    <td>M3Exam</td>
+                    <td>67.4</td>
+                    <td>71.2</td>
+                    <td><b>72.1</b></td>
+                </tr>
+                <tr>
+                    <td>XCOPA</td>
+                    <td>92.6</td>
+                    <td>81.1</td>
+                    <td><b>92.8</b></td>
+                </tr>
+                <tr>
+                    <td>MGSM</td>
+                    <td>48.9</td>
+                    <td><b>63.9</b></td>
+                    <td>62.6</td>
+                </tr>
+                <tr>
+                    <td>XNLI</td>
+                    <td>66.2</td>
+                    <td>74.9</td>
+                    <td><b>76.6</b></td>
+                </tr>
+                <tr>
+                    <td>Flores-200</td>
+                    <td>57.4</td>
+                    <td>53.1</td>
+                    <td><b>58.8</b></td>
+                </tr>
+                <tr class="highlight">
+                    <td><i>Average</i></td>
+                    <td>66.9</td>
+                    <td>69.8</td>
+                    <td><b>73.2</b></td>
+                </tr>
+                </tbody>
+            </table> -->
+        </div>
+
+        <h2 class="title is-4">Voice Chat</h2>
+        <div class="content has-text-justified">
+            <div class="full-width-container example-container">
+                <div class="example-content">
+                    <div class="title"><span>Voice Chat: Identify speaker information and respond </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Yes, the speaker is female and in her twenties.</div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/1718857224593-3efbd24f-f7f8-4f10-abba-24df5d92210b.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">I'm sorry to hear that you're feeling stressed about your
+                                    exam. It's completely normal to feel anxious when you're preparing for an important
+                                    test. Here are some tips that might help you:
+                                    &nbsp;
+                                    1. Start studying early: Don't leave everything until the last minute. Break up your
+                                    study sessions into smaller chunks of time, and try to stick to a regular schedule.
+                                    2. Find a quiet place to study: A quiet environment can help you concentrate better.
+                                    If possible, find a library or a study room where you can work without distractions.
+                                    3.Take breaks: It's important to take breaks during your study sessions. This will
+                                    give your brain a chance to rest and recharge. Try taking short breaks every hour or
+                                    so.
+                                    4. Get enough sleep: Lack of sleep can make it harder to focus and retain
+                                    information. Make sure you're getting enough sleep each night, ideally around 7-8
+                                    hours.
+                                    5. Practice relaxation techniques: Deep breathing exercises, meditation, or yoga can
+                                    all help you relax and reduce stress.
+                                    &nbsp;
+                                    Remember, it's okay if you're not feeling well-prepared. Just do your best, and
+                                    trust yourself. Good luck with your exam!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content" style="display:none">
+                    <div class="title"><span>Voice Chat: Speech translation </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/1718864196340-99f0394d-7d0b-4b4b-b86a-4d8f3a2ac09c.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">每个人都希望被欣赏，所以如果你欣赏某人，不要把它保密。</div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/translate it into German.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Jeder möchte geschätzt werden, also wenn du jemanden schätzt,
+                                    lass es nicht als Geheimnis verbergen.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/how about into French.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Chacun veut être apprecié, alors si tu apprécies quelqu'un, ne
+                                    le gardes pas secret.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/给我生成一些类似这句话意思的，其他说法的句子，用中文生成.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">1. 每个人都喜欢被赞美，所以如果你喜欢一个人，不要隐藏你的赞赏。
+                                    2. 所有人都渴望得到认可，因此如果你欣赏某人，请不要独自享用这种感觉。
+                                    3. 人们都希望被欣赏，所以如果你喜欢某人，不要独自保密欣赏他人是一种美德，所以不要让别人知道你对他们的赞赏是秘密的。
+                                    4. 人们都希望受到赞扬，所以如果你欣赏某人，不妨公开表达出来。
+                                    5. 如果你喜欢某人，不要犹豫告诉他们，因为每个人都有权利享受他人的赞赏。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-content" style="display:none">
+                    <div class="title">
+                        <span>Voice Chat: Detecting background noise and responding accordingly </span>
+                        <a class="next-button">Next</a></div>
+                    <div class="grid-layout">
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/audio-0-100.wav.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Use headphones to block out external noise and find a quiet
+                                    place to study. Prioritize your tasks and set realistic goals for yourself. Use
+                                    active learning techniques such as summarizing, note-taking, and quizzing to help
+                                    you retain information. Take breaks and practice self-care to avoid burnout.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">User</div>
+                            <div class="content wide-content">
+                                <div class="text-content">
+                                    <audio class="audio-icon" controls="">
+                                        <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/en-noise-2.wav"
+                                                type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="role">Qwen2-Audio</div>
+                            <div class="content wide-content">
+                                <div class="text-content">Yes, you can try negotiating with them to reach a mutually
+                                    beneficial agreement. You could also consider seeking help from a mediator or
+                                    professional negotiator if needed.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<!-- model information -->
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">Acknowledgement</h2>
+        <p>Put your acknowledgement here.</p>
+    </div>
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <p>
+            If you find our project useful, we hope you would kindly star our repo and cite our work as follows.
+            <br>
+            Corresponding Author: <a href="mailto: wxzhang@sutd.edu.sg">wxzhang@sutd.edu.sg</a>
+        </p>
+        <pre><code>Put your bib here
+    </code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link"
+               href="https://github.com/babel-llm/babel-llm/blob/main/paper/babel.pdf">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link" href="https://github.com/babel-llm/babel-llm/tree/main" class="external-link" disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                        licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
