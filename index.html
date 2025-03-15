@@ -56,7 +56,7 @@
                     <h1 class="title is-1 publication-title">
                         <img src="./static/images/seallm-audio-logo.png" alt="" style="height: 2.5em;">
                         <br>
-                        SeaLLMs-Audio: Large Audio Language Models <br> for Southeast Asia
+                        SeaLLMs-Audio: Large Audio-Language Models <br> for Southeast Asia
                     </h1>
                     <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -86,6 +86,7 @@
                     </div>
 
                     <div class="is-size-5 publication-authors">
+                        <br>
                         <span class="author-block">DAMO Academy, Alibaba Group</span>
                     </div>
 
@@ -101,7 +102,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLM-Chat"
+                <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLMs-Audio-Demo"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       🤗
@@ -199,16 +200,16 @@
                 <!-- <h2 class="title is-3">Abstract</h2> -->
                 <div class="content has-text-justified">
                     <p>
-                        We introduce SeaLLMs-Audio, the multimodal (audio) extension of the <a href="https://damo-nlp-sg.github.io/DAMO-SeaLLMs/">SeaLLMs</a> (Large Language Models for Southeast Asian languages) family. It is the first large audio language model (LALM) designed to support multiple Southeast Asian languages, including Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh). Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as automatic speech recognition (ASR), speech-to-text translation (S2TT), and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
+                        We introduce SeaLLMs-Audio, the multimodal (audio) extension of the <a href="https://damo-nlp-sg.github.io/DAMO-SeaLLMs/">SeaLLMs</a> (Large Language Models for Southeast Asian languages) family. It is the first large audio-language model (LALM) designed to support multiple Southeast Asian languages, including Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh). Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as audio analysis tasks and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
                         The key features of SeaLLMs-Audio include:
                     </p>
                     <ul>
                         <li>Multilingual: the model mainly support 5 languages, including 🇮🇩Indonesioan, 🇹🇭Thai, 🇻🇳Vietnamese 🇬🇧English, 🇨🇳Chinese.</li>
                         <li>Multimodal: the model support flexible input format, such as audio only, text only and audio with text.</li>
-                        <li>Multi-task: the model supports a variety of tasks, including audio analysis tasks such as Audio Captioning, Automatic Speech Recognition, Speech-to-Text Translation, Speech Emotion Recognition, Speech Question Answering, and Speech Summarization. Additionally, it facilitates voice chat tasks, including answering factual and mathematical questions.</li>
+                        <li>Multi-task: the model supports a variety of tasks, including audio analysis tasks such as Audio Captioning, Automatic Speech Recognition, Speech-to-Text Translation, Speech Emotion Recognition, Speech Question Answering, and Speech Summarization. Additionally, it facilitates voice chat tasks, including answering factual, mathematical and other general questions.</li>
                     </ul>
                     <p>
-                        We open-weight <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B">SeaLLMs-Audio</a> in Hugging Face, and we have built a <a href="">demo</a> for users to interact with. Below are some examples to show the model performance:
+                        We open-weight <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B">SeaLLMs-Audio</a> in Hugging Face, and we have built a <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLMs-Audio-Demo">demo</a> for users to interact with. Below are some examples to show the model performance:
                     </p>
                 </div>
             </div>
@@ -303,6 +304,7 @@
                 <div class="example-content">
                     <div class="title"><span>Voice Chat: Answering questions about factuality </span>
                         <a class="next-button">Next</a></div>
+                        <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -324,6 +326,7 @@
                                 <div class="text-content">The most abundant gas in Earth's atmosphere is nitrogen. It makes up about 78 percent of the atmosphere by volume.</div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -348,6 +351,7 @@
                 <div class="example-content" style="display:none">
                     <div class="title"><span>Voice Chat: Answering mathematical questions </span>
                         <a class="next-button">Next</a></div>
+                        <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -369,6 +373,7 @@
                                 <div class="text-content">If 60% of the cars in the parking lot are four-door cars, and there are 75 four-door cars, you can find the total number of cars by dividing the number of four-door cars by the percentage they represent. So, if 75 is 60% of the total, you divide 75 by 0.6 to get the total number of cars. This gives you 125 cars in the parking lot altogether.</div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -423,6 +428,7 @@
                 <div class="example-content" style="display:none">
                     <div class="title"><span>Voice Chat: Answering general questions </span>
                         <a class="next-button">Next</a></div>
+                    <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -445,6 +451,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -483,6 +490,7 @@
                 <div class="example-content">
                     <div class="title"><span>Audio Analysis: Audio Captioning </span>
                         <a class="next-button">Next</a></div>
+                    <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -505,6 +513,7 @@
                                 <div class="text-content">A dog pants and then a car horn blows followed by a dog barking</div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -530,6 +539,7 @@
                 <div class="example-content"  style="display:none">
                     <div class="title"><span>Audio Analysis: Automatic Speech Recognition </span>
                         <a class="next-button">Next</a></div>
+                    <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -552,6 +562,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -577,6 +588,7 @@
                 <div class="example-content"  style="display:none">
                     <div class="title"><span>Audio Analysis: Speech Question Answering </span>
                         <a class="next-button">Next</a></div>
+                    <div class="title is-5">Example 1</div>
                     <div class="grid-layout">
                         <div class="message">
                             <div class="role">User</div>
@@ -599,6 +611,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="title is-5">Example 2</div>
                         <div class="message">
                             <div class="role">User</div>
                             <div class="content wide-content">
@@ -686,7 +699,7 @@
             </p>
             <ul>
                 <li>
-                    <strong>Tasks with both audio and text inputs:</strong> Audio Analysis (AA), Automatic Speech Recognition (ASR), Speech-to-Text Translation (S2TT), Speech Emotion Recognition (SER), Speech Question Answering (SQA), and Speech Summarization (SS).
+                    <strong>Tasks with both audio and text inputs:</strong> Audio Captioning (AC), Automatic Speech Recognition (ASR), Speech-to-Text Translation (S2TT), Speech Emotion Recognition (SER), Speech Question Answering (SQA), and Speech Summarization (SS).
                 </li>
                 <li>
                     <strong>Tasks with only audio inputs:</strong> Factuality, Math, and General.
@@ -694,7 +707,6 @@
             </ul>
             <p>
                 We manually annotated 15 questions per task per language. For evaluation, qualified native speakers rated each response on a scale of 1 to 5, with 5 representing the highest quality.  
-                Please note that SeaBench-Audio is still under development, and we welcome contributions from the community.
             </p>
             Due to the lack of LALMs for all the three Southeast Asian languages, we compare the performance of SeaLLMs-Audio with relevant audio LLMs with similar sizes, including 
             <a href="https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct">Qwen2-Audio-7B-Instruct</a> (Qwen2-Audio), 
@@ -710,76 +722,8 @@
                 <img src="./static/images/scores_lang.png" alt="Performance of SeaLLMs-Audio vs. Other Audio LLMs">
             </figure>
         </div>
-        <div class="table-container">
-        <table>
-            <tr style="text-align: center;">
-                <th rowspan="2" style="text-align: center;">Language</th>
-                <th rowspan="2" style="text-align: center;">Task</th>
-                <th colspan="5" style="text-align: center;">Models</th>
-            </tr>
-            <tr>
-                <th>SeaLLMs-Audio</th>
-                <th>Qwen2-Audio</th>
-                <th>MERaLiON</th>
-                <th>typhoon2-audio</th>
-                <th>DiVA</th>
-            </tr>
-            
-            <!-- English -->
-            <tr><th rowspan="9" style="text-align: center;">English</th><td>AC</td><td>4</td><td>3.73</td><td>3.6</td><td>3.87</td><td>1.33</td></tr>
-            <tr><td>ASR</td><td>4.8</td><td>4.73</td><td>4.53</td><td>4.67</td><td>2.73</td></tr>
-            <tr><td>Factuality</td><td>4.4</td><td>4.07</td><td>4.87</td><td>4.8</td><td>4.53</td></tr>
-            <tr><td>General</td><td>4.4</td><td>4.8</td><td>2.93</td><td>4.27</td><td>4.73</td></tr>
-            <tr><td>Math</td><td>2.67</td><td>2.93</td><td>3.6</td><td>2.87</td><td>3.47</td></tr>
-            <tr><td>S2TT</td><td>3.57</td><td>2.79</td><td>3.93</td><td>3.21</td><td>2.5</td></tr>
-            <tr><td>SER</td><td>3.77</td><td>4.23</td><td>3</td><td>2.23</td><td>2.54</td></tr>
-            <tr><td>SQA</td><td>4.87</td><td>4.53</td><td>4.87</td><td>4.6</td><td>2</td></tr>
-            <tr><td>SS</td><td>3.73</td><td>4.47</td><td>4.13</td><td>3.33</td><td>3.53</td></tr>
-            
-            <!-- Indonesian -->
-            <tr><th rowspan="9" style="text-align: center;">Indonesian</th><td>AC</td><td>3.67</td><td>2.73</td><td>2.6</td><td>1.67</td><td>1</td></tr>
-            <tr><td>ASR</td><td>4.6</td><td>2.87</td><td>3.73</td><td>2.47</td><td>1.2</td></tr>
-            <tr><td>Factuality</td><td>4.27</td><td>2.4</td><td>1</td><td>1</td><td>1</td></tr>
-            <tr><td>General</td><td>3.47</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
-            <tr><td>Math</td><td>3.47</td><td>1.47</td><td>1.2</td><td>1</td><td>1</td></tr>
-            <tr><td>S2TT</td><td>3.93</td><td>2.93</td><td>3.8</td><td>3</td><td>2.53</td></tr>
-            <tr><td>SER</td><td>2.27</td><td>3.27</td><td>2.8</td><td>2.13</td><td>1</td></tr>
-            <tr><td>SQA</td><td>4.87</td><td>3.27</td><td>4.73</td><td>3.8</td><td>1</td></tr>
-            <tr><td>SS</td><td>3</td><td>3.27</td><td>2.6</td><td>2</td><td>1.07</td></tr>
-            
-            <!-- Thai -->
-            <tr><th rowspan="9" style="text-align: center;">Thai</th><td>AC</td><td>3.73</td><td>2.6</td><td>3.2</td><td>3.2</td><td>1</td></tr>
-            <tr><td>ASR</td><td>4.47</td><td>1</td><td>2.47</td><td>4.47</td><td>1</td></tr>
-            <tr><td>Factuality</td><td>3.33</td><td>1</td><td>1</td><td>3.93</td><td>1</td></tr>
-            <tr><td>General</td><td>3.4</td><td>1</td><td>1</td><td>3.93</td><td>1</td></tr>
-            <tr><td>Math</td><td>4.47</td><td>1</td><td>1</td><td>3.4</td><td>1.47</td></tr>
-            <tr><td>S2TT</td><td>4.33</td><td>1.53</td><td>4.6</td><td>4.33</td><td>3.13</td></tr>
-            <tr><td>SER</td><td>4</td><td>2.33</td><td>2.87</td><td>3.2</td><td>1</td></tr>
-            <tr><td>SQA</td><td>4.67</td><td>1.53</td><td>3.53</td><td>4.6</td><td>1</td></tr>
-            <tr><td>SS</td><td>3.2</td><td>1.07</td><td>2.93</td><td>3.4</td><td>1</td></tr>
-
-            <!-- Vietnamese -->
-            <tr><th rowspan="9" style="text-align: center;">Vietnamese</th><td>AC</td><td>4.2</td><td>2.27</td><td>2.47</td><td>1.07</td><td>1</td></tr>
-            <tr><td>ASR</td><td>4.4</td><td>1.27</td><td>2</td><td>1.4</td><td>1</td></tr>
-            <tr><td>Factuality</td><td>3.53</td><td>1</td><td>1.07</td><td>1</td><td>1</td></tr>
-            <tr><td>General</td><td>4.2</td><td>1</td><td>1</td><td>1.07</td><td>1</td></tr>
-            <tr><td>Math</td><td>4.33</td><td>1.07</td><td>1</td><td>1.07</td><td>1</td></tr>
-            <tr><td>S2TT</td><td>4.13</td><td>1.8</td><td>3.93</td><td>3.13</td><td>3.2</td></tr>
-            <tr><td>SER</td><td>4</td><td>1.73</td><td>2.6</td><td>1.73</td><td>1</td></tr>
-            <tr><td>SQA</td><td>4.4</td><td>2.27</td><td>4</td><td>3.33</td><td>1</td></tr>
-            <tr><td>SS</td><td>3.33</td><td>1.67</td><td>2.6</td><td>1.67</td><td>1</td></tr>
-            
-            <!-- Chinese -->
-            <tr><th rowspan="9" style="text-align: center;">Chinese</th><td>AC</td><td>3.73</td><td>3.67</td><td>2.93</td><td>3.8</td><td>1</td></tr>
-            <tr><td>ASR</td><td>4.13</td><td>4.47</td><td>2.8</td><td>2.27</td><td>1</td></tr>
-            <tr><td>Factuality</td><td>4.53</td><td>4.2</td><td>2.33</td><td>1</td><td>1</td></tr>
-            <tr><td>General</td><td>4.27</td><td>4.67</td><td>1.53</td><td>1</td><td>1.13</td></tr>
-            <tr><td>Math</td><td>4.27</td><td>2.4</td><td>1.27</td><td>1</td><td>1</td></tr>
-            <tr><td>S2TT</td><td>3.53</td><td>4.07</td><td>4.4</td><td>3.2</td><td>2.67</td></tr>
-            <tr><td>SER</td><td>4.13</td><td>4.27</td><td>3.73</td><td>3.6</td><td>1</td></tr>
-            <tr><td>SQA</td><td>4.33</td><td>4.6</td><td>3.87</td><td>3.13</td><td>1</td></tr>
-            <tr><td>SS</td><td>4.6</td><td>4.07</td><td>4.4</td><td>2.53</td><td>1</td></tr>
-        </table>
+        <p>The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.</p>
+        
         <!-- </div>
 
         </div> -->
@@ -803,11 +747,11 @@
         <p>
             If you find our project useful, we hope you would kindly star our repo and cite our work as follows.
             <br>
-            Corresponding Author: <a href="mailto: wxzhang@sutd.edu.sg">wxzhang@sutd.edu.sg</a>
+            Corresponding Author: Wenxuan Zhang (<a href="mailto: wxzhang@sutd.edu.sg">wxzhang@sutd.edu.sg</a>)
         </p>
         <pre><code>@misc{SeaLLMs-Audio,
     author = {Chaoqun Liu and Mahani Aljunied and Guizhen Chen and Hou Pong Chan and Weiwen Xu and Yu Rong and Wenxuan Zhang},
-    title = {SeaLLMs-Audio: Large Audio Language Models for Southeast Asia},
+    title = {SeaLLMs-Audio: Large Audio-Language Models for Southeast Asia},
     year = {2025},
     publisher = {GitHub},
     journal = {GitHub repository},
