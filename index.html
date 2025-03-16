@@ -44,6 +44,10 @@
     <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
     </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
  
 </head>
 <body>
@@ -313,7 +317,9 @@
                                     <audio class="audio-icon" controls="">
                                         <!-- <source src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2-Audio/demo/guess age.wav"
                                                 type="audio/wav"> -->
-                                        <source src="static/audios/fact_en.wav"
+                                        <!-- <source src="static/audios/fact_en.wav"
+                                                type="audio/wav"> -->
+                                        <source src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/fact_en.wav"
                                                 type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
@@ -722,11 +728,170 @@
                 <img src="./static/images/scores_lang.png" alt="Performance of SeaLLMs-Audio vs. Other Audio LLMs">
             </figure>
         </div>
-        <p>The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.</p>
+        <p>The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.</p><br>
+        
         
         <!-- </div>
 
         </div> -->
+
+        <h2 class="title is-4">Quick Start</h2>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+            code {
+                background-color: #f4f4f4;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            pre {
+                background-color: #f4f4f4;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+            pre code {
+                display: block;
+                white-space: pre;
+            }
+        </style>
+        <div class="content has-text-justified">
+        <p>Our model is available on <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B">Hugging Face</a>. You can easily use it with the <b>transformers</b> library or <b>vllm</b> library. Below are some examples to get you started.</p>
+        
+        <h5>Get started with <b>transformers</b></h5>
+        <pre><code class="language-python">from transformers import Qwen2AudioForConditionalGeneration, AutoProcessor
+import librosa
+import os
+
+model = Qwen2AudioForConditionalGeneration.from_pretrained("SeaLLMs/SeaLLMs-Audio-7B", device_map="auto")
+processor = AutoProcessor.from_pretrained("SeaLLMs/SeaLLMs-Audio-7B")
+
+def response_to_audio(conversation, model=None, processor=None):
+    text = processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+    audios = []
+    for message in conversation:
+        if isinstance(message["content"], list):
+            for ele in message["content"]:
+                if ele["type"] == "audio":
+                    if ele['audio_url'] != None:
+                        audios.append(librosa.load(
+                            ele['audio_url'], 
+                            sr=processor.feature_extractor.sampling_rate)[0]
+                        )
+    if audios != []:
+        inputs = processor(text=text, audios=audios, return_tensors="pt", padding=True,sampling_rate=16000)
+    else: 
+        inputs = processor(text=text, return_tensors="pt", padding=True)
+    inputs.input_ids = inputs.input_ids.to("cuda")
+    inputs = {k: v.to("cuda") for k, v in inputs.items() if v is not None}
+    generate_ids = model.generate(**inputs, max_new_tokens=2048, temperature = 0, do_sample=False)
+    generate_ids = generate_ids[:, inputs["input_ids"].size(1):]
+    response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+    return response
+
+# Voice Chat
+os.system(f"wget -O fact_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
+os.system(f"wget -O general_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
+conversation = [
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "fact_en.wav"},
+    ]},
+    {"role": "assistant", "content": "The most abundant gas in Earth's atmosphere is nitrogen. It makes up about 78 percent of the atmosphere by volume."},
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "general_en.wav"},
+    ]},
+]
+
+response = response_to_audio(conversation, model=model, processor=processor)
+print(response)
+
+# Audio Analysis
+os.system(f"wget -O ASR_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
+conversation = [
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "ASR_en.wav"},
+        {"type": "text", "text": "Please write down what is spoken in the audio file."},
+    ]},
+]
+
+response = response_to_audio(conversation, model=model, processor=processor)
+print(response)
+</code></pre>
+
+<br>    
+        <h5>Get started with <b>vllm</b></h5>
+        <pre><code class="language-python">from vllm import LLM, SamplingParams
+import librosa, os
+from transformers import AutoProcessor
+
+processor = AutoProcessor.from_pretrained("SeaLLMs/SeaLLMs-Audio-7B")
+llm = LLM(
+    model="SeaLLMs/SeaLLMs-Audio-7B", trust_remote_code=True, gpu_memory_utilization=0.5,  
+    enforce_eager=True,  device = "cuda",
+    limit_mm_per_prompt={"audio": 5},
+)
+
+def response_to_audio(conversation, model=None, processor=None, temperature = 0.1,repetition_penalty=1.1, top_p = 0.9,max_new_tokens = 4096):
+    text = processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+    audios = []
+    for message in conversation:
+        if isinstance(message["content"], list):
+            for ele in message["content"]:
+                if ele["type"] == "audio":
+                    if ele['audio_url'] != None:
+                        audios.append(librosa.load(
+                            ele['audio_url'], 
+                            sr=processor.feature_extractor.sampling_rate)[0]
+                        )
+
+    sampling_params = SamplingParams(
+        temperature=temperature, max_tokens=max_new_tokens, repetition_penalty=repetition_penalty, top_p=top_p, top_k=20,
+        stop_token_ids=[],
+    )
+
+    input = {
+            'prompt': text,
+            'multi_modal_data': {
+                'audio': [(audio, 16000) for audio in audios]
+            }
+            }
+
+    output = model.generate([input], sampling_params=sampling_params)[0]
+    response = output.outputs[0].text
+    return response
+
+# Voice Chat
+os.system(f"wget -O fact_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
+os.system(f"wget -O general_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
+conversation = [
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "fact_en.wav"},
+    ]},
+    {"role": "assistant", "content": "The most abundant gas in Earth's atmosphere is nitrogen. It makes up about 78 percent of the atmosphere by volume."},
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "general_en.wav"},
+    ]},
+]
+
+response = response_to_audio(conversation, model=llm, processor=processor)
+print(response)
+
+# Audio Analysis
+os.system(f"wget -O ASR_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
+conversation = [
+    {"role": "user", "content": [
+        {"type": "audio", "audio_url": "ASR_en.wav"},
+        {"type": "text", "text": "Please write down what is spoken in the audio file."},
+    ]},
+]
+
+response = response_to_audio(conversation, model=llm, processor=processor)
+print(response)
+            </code></pre>
+        </div>
 
         
     </div>
@@ -763,15 +928,6 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="content has-text-centered">
-            <a class="icon-link"
-               href="https://github.com/babel-llm/babel-llm/blob/main/paper/babel.pdf">
-                <i class="fas fa-file-pdf"></i>
-            </a>
-            <a class="icon-link" href="https://github.com/babel-llm/babel-llm/tree/main" class="external-link" disabled>
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
         <div class="columns is-centered">
             <div class="column is-8">
                 <div class="content">
