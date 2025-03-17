@@ -39,8 +39,8 @@ The distribution of data across languages and tasks are:
 </p>
 
 <p align="center">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="70%">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="70%">
+    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="45%">
+    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="45%">
 </p>
 
 The training dataset was curated from multiple data sources, including public datasets and in-house data. Public datasets includes: [gigaspeech](https://huggingface.co/datasets/speechcolab/gigaspeech), [gigaspeech2](https://huggingface.co/datasets/speechcolab/gigaspeech2), [common voice](https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0), [AudioCaps](https://huggingface.co/datasets/OpenSound/AudioCaps), [VoiceAssistant-400K](https://huggingface.co/datasets/gpt-omni/VoiceAssistant-400K), [YODAS2](https://huggingface.co/datasets/espnet/yodas2), and [Multitask-National-Speech-Corpus](https://huggingface.co/datasets/MERaLiON/Multitask-National-Speech-Corpus-v1). We would like to thank the authors of these datasets for their contributions to the community!
