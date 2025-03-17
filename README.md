@@ -1,11 +1,11 @@
 <p align="center">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/images/seallm-audio-logo.png" alt="SeaLLMs-Audio" width="20%">
+    <img src="./static/images/seallm-audio-logo.png" alt="SeaLLMs-Audio" width="20%">
 </p>
 
 # SeaLLMs-Audio: Large Audio-Language Models for Southeast Asia
 
 <p align="center">
-<a href="https://liuchaoqun.github.io/SeaLLMs-Audio/" target="_blank" rel="noopener">Website</a>
+<a href="https://damo-nlp-sg.github.io/SeaLLMs-Audio/" target="_blank" rel="noopener">Website</a>
 &nbsp;&nbsp;
 <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLMs-Audio-Demo" target="_blank" rel="noopener"> 🤗 DEMO</a>
 &nbsp;&nbsp;
@@ -43,7 +43,7 @@ All the LALMs can accept audio with text as input. The results are shown in the 
 
 **Average scores of SeaLLMs-Audio vs. Other LALMs on SeaBench-Audio**
 
-![Performance of SeaLLMs-Audio vs. Other Audio LLMs](https://liuchaoqun.github.io/SeaLLMs-Audio/static/images/scores_lang.png)
+![Performance of SeaLLMs-Audio vs. Other Audio LLMs](./static/images/scores_lang.png)
 
 </center>
 
@@ -60,8 +60,8 @@ The distribution of data across languages and tasks are:
 </p>
 
 <p align="center">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="45%">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="45%">
+    <img src="./static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="45%">
+    <img src="./static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="45%">
 </p>
 
 The training dataset was curated from multiple data sources, including public datasets and in-house data. Public datasets includes: [gigaspeech](https://huggingface.co/datasets/speechcolab/gigaspeech), [gigaspeech2](https://huggingface.co/datasets/speechcolab/gigaspeech2), [common voice](https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0), [AudioCaps](https://huggingface.co/datasets/OpenSound/AudioCaps), [VoiceAssistant-400K](https://huggingface.co/datasets/gpt-omni/VoiceAssistant-400K), [YODAS2](https://huggingface.co/datasets/espnet/yodas2), and [Multitask-National-Speech-Corpus](https://huggingface.co/datasets/MERaLiON/Multitask-National-Speech-Corpus-v1). We would like to thank the authors of these datasets for their contributions to the community!
@@ -105,8 +105,8 @@ def response_to_audio(conversation, model=None, processor=None):
     return response
 
 # Voice Chat
-os.system(f"wget -O fact_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
-os.system(f"wget -O general_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
+os.system(f"wget -O fact_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
+os.system(f"wget -O general_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
 conversation = [
     {"role": "user", "content": [
         {"type": "audio", "audio_url": "fact_en.wav"},
@@ -121,7 +121,7 @@ response = response_to_audio(conversation, model=model, processor=processor)
 print(response)
 
 # Audio Analysis
-os.system(f"wget -O ASR_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
+os.system(f"wget -O ASR_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
 conversation = [
     {"role": "user", "content": [
         {"type": "audio", "audio_url": "ASR_en.wav"},
@@ -177,8 +177,8 @@ def response_to_audio(conversation, model=None, processor=None, temperature = 0.
     return response
 
 # Voice Chat
-os.system(f"wget -O fact_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
-os.system(f"wget -O general_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
+os.system(f"wget -O fact_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/fact_en.wav")
+os.system(f"wget -O general_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/general_en.wav")
 conversation = [
     {"role": "user", "content": [
         {"type": "audio", "audio_url": "fact_en.wav"},
@@ -193,7 +193,7 @@ response = response_to_audio(conversation, model=llm, processor=processor)
 print(response)
 
 # Audio Analysis
-os.system(f"wget -O ASR_en.wav https://liuchaoqun.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
+os.system(f"wget -O ASR_en.wav https://damo-nlp-sg.github.io/SeaLLMs-Audio/static/audios/ASR_en.wav")
 conversation = [
     {"role": "user", "content": [
         {"type": "audio", "audio_url": "ASR_en.wav"},
