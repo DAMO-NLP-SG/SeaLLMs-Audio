@@ -28,26 +28,6 @@ Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong perfor
 
 We open-weight [SeaLLMs-Audio](https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B) on Hugging Face, and we have built a [demo](https://huggingface.co/spaces/SeaLLMs/SeaLLMs-Audio-Demo) for users to interact with.
 
-
-# Training information: 
-SeaLLMs-Audio builts upon [Qwen2-Audio-7B](https://huggingface.co/Qwen/Qwen2-Audio-7B) and [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct). We replaced the LLM module in Qwen2-Audio-7B by Qwen2.5-7B-Instruct. After that, we do full-parameter fine-tuning on a large-scale audio dataset. This dataset contains 1.58M conversations for multiple tasks, in which 93% are single turn. The tasks can be roughly classified as following task categories:  automatic speech recognition (ASR), audio captioning (AC), speech-to-text translation (S2TT), question answering (QA),  speech summarization (SS), speech question answering (SQA), chat, math, and fact and mixed tasks (mixed).
-
-The distribution of data across languages and tasks are:
-
-<p align="center">
-    <strong>Distribution of SeaLLMs-Audio training data across languages and tasks</strong>
-</p>
-
-<p align="center">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="45%">
-    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="45%">
-</p>
-
-The training dataset was curated from multiple data sources, including public datasets and in-house data. Public datasets includes: [gigaspeech](https://huggingface.co/datasets/speechcolab/gigaspeech), [gigaspeech2](https://huggingface.co/datasets/speechcolab/gigaspeech2), [common voice](https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0), [AudioCaps](https://huggingface.co/datasets/OpenSound/AudioCaps), [VoiceAssistant-400K](https://huggingface.co/datasets/gpt-omni/VoiceAssistant-400K), [YODAS2](https://huggingface.co/datasets/espnet/yodas2), and [Multitask-National-Speech-Corpus](https://huggingface.co/datasets/MERaLiON/Multitask-National-Speech-Corpus-v1). We would like to thank the authors of these datasets for their contributions to the community!
-
-We train the model on the dataset for 1 epoch, which took ~6 days to complete on 32 A800 GPUs.
-
-
 # Performance
 Due to the absence of standard audio benchmarks for evaluating audio LLMs in Southeast Asia, we have manually created a benchmark called **SeaBench-Audio**. It comprises nine tasks:
 
@@ -69,6 +49,24 @@ All the LALMs can accept audio with text as input. The results are shown in the 
 
 The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.
 
+
+# Training information: 
+SeaLLMs-Audio builts upon [Qwen2-Audio-7B](https://huggingface.co/Qwen/Qwen2-Audio-7B) and [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct). We replaced the LLM module in Qwen2-Audio-7B by Qwen2.5-7B-Instruct. After that, we do full-parameter fine-tuning on a large-scale audio dataset. This dataset contains 1.58M conversations for multiple tasks, in which 93% are single turn. The tasks can be roughly classified as following task categories:  automatic speech recognition (ASR), audio captioning (AC), speech-to-text translation (S2TT), question answering (QA),  speech summarization (SS), speech question answering (SQA), chat, math, and fact and mixed tasks (mixed).
+
+The distribution of data across languages and tasks are:
+
+<p align="center">
+    <strong>Distribution of SeaLLMs-Audio training data across languages and tasks</strong>
+</p>
+
+<p align="center">
+    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_lang.png" alt="Distribution of SeaLLMs-Audio training data across languages" width="45%">
+    <img src="https://liuchaoqun.github.io/SeaLLMs-Audio/static/data_distribution/dist_task.png" alt="Distribution of SeaLLMs-Audio training data across tasks" width="45%">
+</p>
+
+The training dataset was curated from multiple data sources, including public datasets and in-house data. Public datasets includes: [gigaspeech](https://huggingface.co/datasets/speechcolab/gigaspeech), [gigaspeech2](https://huggingface.co/datasets/speechcolab/gigaspeech2), [common voice](https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0), [AudioCaps](https://huggingface.co/datasets/OpenSound/AudioCaps), [VoiceAssistant-400K](https://huggingface.co/datasets/gpt-omni/VoiceAssistant-400K), [YODAS2](https://huggingface.co/datasets/espnet/yodas2), and [Multitask-National-Speech-Corpus](https://huggingface.co/datasets/MERaLiON/Multitask-National-Speech-Corpus-v1). We would like to thank the authors of these datasets for their contributions to the community!
+
+We train the model on the dataset for 1 epoch, which took ~6 days to complete on 32 A800 GPUs.
 
 # Quickstart
 Our model is available on Hugging Face, and you can easily use it with the `transformers` library or `vllm` library. Below are some examples to get you started.
