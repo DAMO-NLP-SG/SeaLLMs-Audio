@@ -1,0 +1,12 @@
+[
+    {"conversations": [
+        {"from": "user", "value": "<audio>audio_path</audio>11111"},
+        {"from": "assistant", "value": "22222"}
+    ]},
+    {"conversations": [
+        {"from": "user", "value": "<audio>audio_path1</audio>"},
+        {"from": "assistant", "value": "bbbbb"},
+        {"from": "user", "value": "<audio>audio_path2</audio>"},
+        {"from": "assistant", "value": "ddddd"}
+    ]}
+]

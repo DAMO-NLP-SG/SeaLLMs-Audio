@@ -16,6 +16,13 @@
 <!-- <a href="https://arxiv.org/pdf/2407.19672" target="_blank" rel="noopener">[NEW] Technical Report</a> -->
 </p>
 
+# News
+
+* [Mar 22, 2025]  We released the training script for SeaLLMs-Audio. [[Code](scripts)]
+* [Mar 17, 2025] 🚀 We rolled out SeaLLMs-Audio-7B, the first multimodal (audio) extension of the [SeaLLMs](https://damo-nlp-sg.github.io/DAMO-SeaLLMs/) family.
+
+# Introduction
+
 We introduce **SeaLLMs-Audio**, the multimodal (audio) extension of the [SeaLLMs](https://damo-nlp-sg.github.io/DAMO-SeaLLMs/) (Large Language Models for Southeast Asian languages) family. It is the first large audio-language model (LALM) designed to support multiple Southeast Asian languages, including **Indonesian (id), Thai (th), and Vietnamese (vi), alongside English (en) and Chinese (zh)**. 
 
 Trained on a large-scale audio dataset, SeaLLMs-Audio demonstrates strong performance across various audio-related tasks, such as audio analysis tasks and voice-based interactions. As a significant step toward advancing audio LLMs in Southeast Asia, we hope SeaLLMs-Audio will benefit both the research community and industry in the region.
@@ -50,7 +57,7 @@ All the LALMs can accept audio with text as input. The results are shown in the 
 The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.
 
 
-# Training information: 
+# Training information
 SeaLLMs-Audio builts upon [Qwen2-Audio-7B](https://huggingface.co/Qwen/Qwen2-Audio-7B) and [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct). We replaced the LLM module in Qwen2-Audio-7B by Qwen2.5-7B-Instruct. After that, we do full-parameter fine-tuning on a large-scale audio dataset. This dataset contains 1.58M conversations for multiple tasks, in which 93% are single turn. The tasks can be roughly classified as following task categories:  automatic speech recognition (ASR), audio captioning (AC), speech-to-text translation (S2TT), question answering (QA),  speech summarization (SS), speech question answering (SQA), chat, math, and fact and mixed tasks (mixed).
 
 The distribution of data across languages and tasks are:
@@ -71,7 +78,9 @@ We train the model on the dataset for 1 epoch, which took ~6 days to complete on
 # Quickstart
 Our model is available on Hugging Face, and you can easily use it with the `transformers` library or `vllm` library. Below are some examples to get you started.
 
-## Get started with `transformers`
+## Inference with `transformers`
+
+You can try the model by runing ```"python scripts/infer_transformers.py"```" or with the following code snippet.
 
 ```python
 from transformers import Qwen2AudioForConditionalGeneration, AutoProcessor
@@ -134,6 +143,8 @@ print(response)
 ```
 
 ## Inference with `vllm`
+
+You can try the model by runing ```"python scripts/infer_vllm.py"``` or with the following code snippet.
 
 ```python
 from vllm import LLM, SamplingParams
@@ -205,8 +216,15 @@ response = response_to_audio(conversation, model=llm, processor=processor)
 print(response)
 ```
 
+# How to train?
+SeaLLMs-Audio-7B is based on the [Qwen2-Audio-7B](https://huggingface.co/Qwen/Qwen2-Audio-7B) audio encoder and [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) models. To train your own model, you can follow the steps below:
+1. Install the required packages by running `pip install -r scripts/requirements.txt`.
+2. Prepare the training data. You can refer to the sample data in [`scripts/train_examples.json`](scripts/train_examples.json) for the data format.
+3. Initialize the model by running `python scripts/initialize_new_model.py`.
+4. Train the model by running `source scripts/sft.sh`.
 
-## Citation
+
+# Citation
 If you find our project useful, we hope you would kindly star our [repo](https://github.com/DAMO-NLP-SG/SeaLLMs-Audio) and cite our work as follows.
 Corresponding Author: Wenxuan Zhang ([wxzhang@sutd.edu.sg](mailto:wxzhang@sutd.edu.sg))
 ```
