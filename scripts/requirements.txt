@@ -1,4 +1,4 @@
-transformers==4.46.1
+transformers==4.48.0
 torch==2.5.1
 ms-swift==2.5.2
 librosa==0.10.2.post1
