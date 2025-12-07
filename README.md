@@ -240,7 +240,6 @@ Corresponding Author: Wenxuan Zhang ([wxzhang@sutd.edu.sg](mailto:wxzhang@sutd.e
       year={2025},
       eprint={2511.01670},
       archivePrefix={arXiv},
-      primaryClass={cs.CL},
       url={https://arxiv.org/abs/2511.01670}, 
 }
 ```
