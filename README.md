@@ -7,17 +7,23 @@
 <p align="center">
 <a href="https://damo-nlp-sg.github.io/SeaLLMs-Audio/" target="_blank" rel="noopener">Website</a>
 &nbsp;&nbsp;
+<a href="https://arxiv.org/abs/2511.01670" target="_blank" rel="noopener">📖 Paper</a>
+&nbsp;&nbsp;
 <a href="https://huggingface.co/spaces/SeaLLMs/SeaLLMs-Audio-Demo" target="_blank" rel="noopener"> 🤗 DEMO</a>
 &nbsp;&nbsp;
 <a href="https://github.com/DAMO-NLP-SG/SeaLLMs-Audio" target="_blank" rel="noopener">Github</a>
 &nbsp;&nbsp;
 <a href="https://huggingface.co/SeaLLMs/SeaLLMs-Audio-7B" target="_blank" rel="noopener">🤗 Model</a>
 &nbsp;&nbsp;
+<a href="https://huggingface.co/datasets/SeaLLMs/SeaBench-Audio" target="_blank" rel="noopener">🤗 Benchmark</a>
+&nbsp;&nbsp;
 <!-- <a href="https://arxiv.org/pdf/2407.19672" target="_blank" rel="noopener">[NEW] Technical Report</a> -->
 </p>
 
 # News
 
+* [Dec 7, 2025] We released the [script](SeaBench_Audio) and [dataset](https://huggingface.co/datasets/SeaLLMs/SeaBench-Audio) for SeaBench-Audio, an audio benchmark for Large Audio Language Models for Southeast Asia.
+* [Nov 3, 2025] We released the paper for [SeaLLMs-Audio](https://arxiv.org/abs/2511.01670).
 * [Mar 22, 2025]  We released the training script for SeaLLMs-Audio. [[Code](scripts)]
 * [Mar 17, 2025] 🚀 We rolled out SeaLLMs-Audio-7B, the first multimodal (audio) extension of the [SeaLLMs](https://damo-nlp-sg.github.io/DAMO-SeaLLMs/) family.
 
@@ -229,11 +235,12 @@ If you find our project useful, we hope you would kindly star our [repo](https:/
 Corresponding Author: Wenxuan Zhang ([wxzhang@sutd.edu.sg](mailto:wxzhang@sutd.edu.sg))
 ```
 @misc{SeaLLMs-Audio,
-    author = {Chaoqun Liu and Mahani Aljunied and Guizhen Chen and Hou Pong Chan and Weiwen Xu and Yu Rong and Wenxuan Zhang},
-    title = {SeaLLMs-Audio: Large Audio-Language Models for Southeast Asia},
-    year = {2025},
-    publisher = {GitHub},
-    journal = {GitHub repository},
-    howpublished = {\url{https://github.com/DAMO-NLP-SG/SeaLLMs-Audio}},
+      title={SeaLLMs-Audio: Large Audio-Language Models for Southeast Asia}, 
+      author={Chaoqun Liu and Mahani Aljunied and Guizhen Chen and Hou Pong Chan and Weiwen Xu and Yu Rong and Wenxuan Zhang},
+      year={2025},
+      eprint={2511.01670},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2511.01670}, 
 }
 ```

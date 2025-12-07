@@ -1,0 +1,11 @@
+backup/
+.DS_Store
+.cache/
+__pycache__/
+judgements/
+summary/
+results/
+figs
+human_judge
+test*
+datasets/
